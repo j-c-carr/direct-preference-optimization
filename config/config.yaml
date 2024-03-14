@@ -2,7 +2,7 @@
 seed: 0
 
 # name for this experiment in the local run directory and on wandb
-exp_name: ???
+exp_name: sft-test
 
 # the batch size for training; for FSDP, the batch size per GPU is batch_size / (grad_accumulation_steps * num_gpus)
 batch_size: 4
@@ -22,7 +22,7 @@ datasets:
 
 # wandb configuration
 wandb:
-  enabled: true
+  enabled: False
   entity: null
   project: "direct-preference-optimization"
 
@@ -32,7 +32,7 @@ wandb:
 local_dirs:
   - /scr-ssd
   - /scr
-  - .cache
+  - scratch/.cache
 
 # whether or not to generate samples during evaluation; disable for FSDP/TensorParallel
 #   is recommended, because they are slow
@@ -48,7 +48,7 @@ do_first_eval: true
 local_run_dir: ${get_local_run_dir:${exp_name},${local_dirs}}
 
 # the learning rate
-lr: 5e-7
+lr: 1e-6
 
 # number of steps to accumulate over for each batch
 #   (e.g. if batch_size=4 and gradient_accumulation_steps=2, then we will
