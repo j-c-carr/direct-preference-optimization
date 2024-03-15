@@ -8,7 +8,7 @@ python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-2. Run either the `hh_sft.sh` or `hh_dpo.sh` scripts. These scripts basically run steps 2 and 3 of the "complete example" section below.
+2. Run either the `hh_sft.sh` or `hh_dpo.sh` scripts. These scripts basically run steps 2 and 3 of the "complete example" section below. You'll need set the `dpo_dir` variable to the filepath for this repository on the cluster.
 ```
 chmod +x hh_sft.sh
 sbatch hh_sft.sh
