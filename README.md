@@ -1,5 +1,19 @@
-# DPO: Direct Preference Optimization
+# Instructions to run DPO on the Mila cluster
+1. Create a virtual environment from `requirements.txt`. Make sure you load python 3.8 and cuda first.
+```
+module load python/3.8
+module load cuda/11.7
 
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+2. Run either the `hh_sft.sh` or `hh_dpo.sh` scripts. These scripts basically run steps 2 and 3 of the "complete example" section below.
+```
+chmod +x hh_sft.sh
+sbatch hh_sft.sh
+```
+# DPO: Direct Preference Optimization (instructions copied from original repo)
 **New:** in addition to the original DPO algorithm, this repo now supports ['conservative' DPO](https://ericmitchell.ai/cdpo.pdf) and [IPO](https://arxiv.org/pdf/2310.12036.pdf).
 
 For conservative DPO, you just need to additionally pass the parameter `loss.label_smoothing=X` for some `X` between 0 and 0.5 when performing DPO training (0 gives the original DPO loss). This parameter is essentially the conservativeness parameter, i.e., the fraction of the training preference data that is incorrect (flipped preference direction). Starting with something like 0.1 might be reasonable, but I haven't tested this yet (and it will depend on the preference dataset).
