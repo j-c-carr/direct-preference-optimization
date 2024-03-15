@@ -8,7 +8,8 @@ python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-2. Run either the `hh_sft.sh` or `hh_dpo.sh` scripts. These scripts basically run steps 2 and 3 of the "complete example" section below. You'll need set the `dpo_dir` variable to the filepath for this repository on the cluster.
+2. Change line `35` in `config/config.yaml` to the path of the scratch folder (instead of mine).
+3. Run either the `sft.sh` or `dpo.sh` scripts. These scripts can be found in the `scripts` folder (I put these scripts in my home directory on the cluster). These scripts basically run steps 2 and 3 of the "complete example" section below. You'll need set the `dpo_dir` variable to the filepath for this repository on the cluster.
 ```
 chmod +x hh_sft.sh
 sbatch hh_sft.sh
