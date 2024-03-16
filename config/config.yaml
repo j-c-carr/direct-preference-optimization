@@ -2,7 +2,7 @@
 seed: 0
 
 # name for this experiment in the local run directory and on wandb
-exp_name: sft-test
+exp_name: sft-dpo
 
 # the batch size for training; for FSDP, the batch size per GPU is batch_size / (grad_accumulation_steps * num_gpus)
 batch_size: 4
@@ -48,7 +48,7 @@ do_first_eval: true
 local_run_dir: ${get_local_run_dir:${exp_name},${local_dirs}}
 
 # the learning rate
-lr: 5e-7
+lr: 1e-6
 
 # number of steps to accumulate over for each batch
 #   (e.g. if batch_size=4 and gradient_accumulation_steps=2, then we will
@@ -86,7 +86,7 @@ warmup_steps: 150
 activation_checkpointing: false
 
 # evaluate and save model every eval_every steps
-eval_every: 20_000
+eval_every: 40_000
 
 # prevent wandb from logging more than once per minimum_log_interval_secs
 minimum_log_interval_secs: 1.0
