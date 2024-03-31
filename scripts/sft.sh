@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --output=job_output_pythia28_sft.txt
-#SBATCH --error=job_error_pythia28_sft.txt
+#SBATCH --output=job_output_pythia28_sft_paperlr.txt
+#SBATCH --error=job_error_pythia28_sft_paperlr.txt
 #SBATCH --mem=100Gb
 #SBATCH --cpus-per-gpu=2
 #SBATCH --gres=gpu:a100l:4
