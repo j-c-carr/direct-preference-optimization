@@ -22,9 +22,9 @@ datasets:
 
 # wandb configuration
 wandb:
-  enabled: False
+  enabled: True 
   entity: null
-  project: "direct-preference-optimization"
+  project: "hh_lhf"
 
 # to create the local run directory and cache models/datasets,
 #   we will try each of these directories in order; if none exist,
